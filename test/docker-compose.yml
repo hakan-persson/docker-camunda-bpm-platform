@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 services:
     camunda:
@@ -6,6 +6,8 @@ services:
         ports:
             - "8080:8080"
         restart: unless-stopped
+        mem_limit: 512m
+        cpus: 0.25
 
     camunda-mysql:
         image: camunda/camunda-bpm-platform:${DISTRO:-latest}
@@ -20,6 +22,8 @@ services:
         ports:
             - "8080:8080"
         restart: unless-stopped
+        mem_limit: 512m
+        cpus: 0.25
 
     camunda-postgres:
         image: camunda/camunda-bpm-platform:${DISTRO:-latest}
@@ -34,6 +38,8 @@ services:
         ports:
             - "8080:8080"
         restart: unless-stopped
+        mem_limit: 512m
+        cpus: 0.25
 
     camunda-debug:
         image: camunda/camunda-bpm-platform:${DISTRO:-latest}
@@ -43,6 +49,8 @@ services:
             - "8080:8080"
             - "8000:8000"
         restart: unless-stopped
+        mem_limit: 512m
+        cpus: 0.25
 
     camunda-prometheus-jmx:
         image: camunda/camunda-bpm-platform:${DISTRO:-latest}
@@ -52,6 +60,8 @@ services:
             - "8080:8080"
             - "9404:9404"
         restart: unless-stopped
+        mem_limit: 512m
+        cpus: 0.25
 
     camunda-password-file:
         image: camunda/camunda-bpm-platform:${DISTRO:-latest}
@@ -68,6 +78,8 @@ services:
         ports:
             - "8080:8080"
         restart: unless-stopped
+        mem_limit: 512m
+        cpus: 0.25
 
     mysql:
         image: mysql:5.7
@@ -76,9 +88,13 @@ services:
             - MYSQL_USER=camunda
             - MYSQL_PASSWORD=camunda
             - MYSQL_DATABASE=process-engine
+        mem_limit: 512m
+        cpus: 0.25
 
     postgres:
         image: postgres:9.6
         environment:
             - POSTGRES_USER=camunda
             - POSTGRES_PASSWORD=camunda
+        mem_limit: 512m
+        cpus: 0.25

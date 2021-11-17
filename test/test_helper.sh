@@ -19,6 +19,8 @@ function _exit {
 
 function start_container {
   docker-compose up -d --no-recreate ${SERVICE} || _exit 1 "Unable to start compose"
+  docker ps -a
+  docker stats --no-stream
 }
 
 function container_id {
