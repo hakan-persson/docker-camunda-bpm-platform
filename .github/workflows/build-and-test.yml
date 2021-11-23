@@ -5,8 +5,8 @@ jobs:
     runs-on: ["self-hosted", "Linux"]
     strategy:
       matrix:
-        DISTRO: ["tomcat", "wildfly", "run"]
-        EE: ["false", "true"]
+        DISTRO: [run] #["tomcat", "wildfly", "run"]
+        EE: ["false"] # ["false", "true"]
     steps:
       - name: Install docker-compose
         run:  |-
