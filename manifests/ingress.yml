@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "akstest-0712"
+    labels:
+        app: "akstest-0712"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: aks-test-camund-akstest-0712.583e6cdb37764cbb83ae.westeurope.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "akstest-0712"
+                servicePort: 8080
