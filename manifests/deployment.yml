@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "akstest-0712"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "akstest-0712"
+  template:
+    metadata:
+      labels:
+        app: "akstest-0712"
+    spec:
+      containers:
+        - name: "akstest-0712"
+          image: "digitcontainerregistry.azurecr.io/akstest"
+          ports:
+          - containerPort: 8080
